@@ -357,10 +357,10 @@ export default function HeroSection() {
                       type="tel"
                       name="phone"
                       value={formData.phone}
-                      onChange={(e) => {
+                      onChange={
                         // const val = e.target.value.replace(/\D/g, "").slice(0, 15);
                         handleInputChange
-                      }}
+                      }
                       maxLength={15}
                       pattern="[0-9]{7,15}" // validation: 7–15 digits
                       required

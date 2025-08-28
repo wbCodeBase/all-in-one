@@ -3,43 +3,21 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from 'next/navigation';
-import PromptInputBox from "./PromptInputBox";
 import IntegrationIcons from "./IntegrationIcons";
 
-import { Clover } from 'lucide-react';
 import Link from "next/link";
 
 export default function HeroSection() {
   // const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', company: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', company: '', phone: '', countryCode: '' });
   const navigate = useRouter();
-  const [currentPrompt, setCurrentPrompt] = useState('');
 
-  // const dynamicWords = [
-  //   "scalable backends",
-  //   "event-driven systems",
-  //   "automation tools",
-  //   "SaaS applications"
-  // ];
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrentWordIndex((prev) => (prev + 1) % dynamicWords.length);
-  //   }, 2000);
+  const [businessType, setBusinessType] = useState("");
+  const [goal, setGoal] = useState("");
 
-  //   return () => clearInterval(interval);
-  // }, []);
 
-  const handleGenerateClick = () => {
-    setShowPopup(true);
-  };
-
-  const handleFeelingLucky = () => {
-    setCurrentPrompt("Build me a lead generation funnel that captures prospects from social media, qualifies them through...")
-    localStorage.setItem('userPrompt', currentPrompt);
-    setShowPopup(true);
-  };
 
   const handleClosePopup = () => {
     setShowPopup(false);
@@ -48,29 +26,54 @@ export default function HeroSection() {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    const fullPhone = `${formData.countryCode}${formData.phone}`;
+
+    console.log("Full phone:", fullPhone);
+
     // Store user data
     localStorage.setItem('userName', formData.name);
     localStorage.setItem('userEmail', formData.email);
     localStorage.setItem('userCompany', formData.company);
-    localStorage.setItem('userPrompt', currentPrompt);
-
-    // Navigate to results page
-    navigate.push(`/results?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&prompt=${encodeURIComponent(currentPrompt)}`);
 
     setShowPopup(false);
-    setFormData({ name: '', email: '', company: '' });
+    setFormData({ name: '', email: '', company: '', phone: '', countryCode: '' });
+
+    if (businessType == "Other" && goal) {
+      navigate.push("/waiting-list")
+      return
+    }
+
+    // Navigate to results page
+    navigate.push(`/results?business=${encodeURIComponent(businessType)}&goal=${encodeURIComponent(goal)}`);
+
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
   };
 
+
+
+  // Handle onboarding save
+  const handleContinue = () => {
+
+    setShowPopup(true);
+
+
+  };
+
+
+
+
+
   return (
     <main className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center" data-testid="hero-section">
-
 
 
 
@@ -168,37 +171,81 @@ export default function HeroSection() {
 
 
       {/* AI Prompt Input Box */}
-      <motion.div
+      {/* <motion.div
         className="w-full max-w-2xl mb-8"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.6 }}
       >
         <PromptInputBox onPromptChange={setCurrentPrompt} />
-      </motion.div>
+      </motion.div> */}
+
+
+
+
+
+      <div className="bg-dark-primary flex items-center justify-center p-6 mb-10 w-full">
+        <div className="bg-gray-900/80 border border-gray-700 rounded-2xl p-8 max-w-3xl w-full">
+
+          <h2 className="text-2xl font-bold text-white mb-6 text-center">Tell us about your business</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            {/* Business Type */}
+            <div>
+              <label className="block text-sm text-gray-300 mb-2">What is your business?</label>
+              <select
+                value={businessType}
+                onChange={(e) => setBusinessType(e.target.value)}
+                className="w-full rounded-2xl p-3 bg-gray-800 text-white border border-gray-600 focus:border-green-500 focus:ring-green-500"
+              >
+                <option value="">Select...</option>
+                <option value="IT">IT</option>
+                <option value="Real Estate">Real Estate</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            {/* Goal */}
+            <div>
+              <label className="block text-sm text-gray-300 mb-2">What is your goal?</label>
+              <select
+                value={goal}
+                onChange={(e) => setGoal(e.target.value)}
+                className="w-full rounded-2xl p-3 bg-gray-800 text-white border border-gray-600 focus:border-green-500 focus:ring-green-500"
+              >
+                <option value="">Select...</option>
+                <option value="Lead Generation">Lead Generation</option>
+                <option value="Sales Growth">Sales Growth</option>
+                <option value="Business Automation">Business Automation</option>
+              </select>
+            </div>
+          </div>
+
+          <button
+            onClick={handleContinue}
+            disabled={!businessType || !goal}
+            className="w-full bg-green-600 hover:bg-green-700 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed text-white py-3 rounded-xl font-medium transition"
+          >
+            Continue
+          </button>
+        </div>
+      </div>
+
+
+
+
+
+
+
 
       {/* Generate Now Button */}
-      <motion.div
+      {/* <motion.div
         className="mb-12 flex gap-8"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.8 }}
         data-testid="generate-button-section"
       >
-        <button
-          onClick={handleFeelingLucky}
-          className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-12 py-4 rounded-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25 hover:shadow-glow transform hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2"
-          data-testid="button-generate-now"
-        >
-          <Clover height={20} />
-
-          I am feeling lucky
-
-          {/* <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-          </svg> */}
-        </button>
-
 
         <button
           onClick={handleGenerateClick}
@@ -211,7 +258,7 @@ export default function HeroSection() {
           </svg>
         </button>
 
-      </motion.div>
+      </motion.div> */}
 
       {/* Integration Icons */}
       <motion.div
@@ -281,6 +328,55 @@ export default function HeroSection() {
                   />
                 </div>
 
+
+
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2 text-left">
+                    Phone
+                  </label>
+                  <div className="flex gap-2">
+                    {/* Country Code Select */}
+                    <select
+                      name="countryCode"
+                      value={formData.countryCode}
+                      onChange={handleInputChange}
+                      className="px-4 py-3 bg-gray-800 border border-gray-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      required
+                    >
+                      <option value="">Code</option>
+                      <option value="+91">🇮🇳 +91</option>
+                      <option value="+1">🇺🇸 +1</option>
+                      <option value="+44">🇬🇧 +44</option>
+                      <option value="+61">🇦🇺 +61</option>
+                      <option value="+971">🇦🇪 +971</option>
+                    </select>
+
+                    {/* Phone Input */}
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={(e) => {
+                        // const val = e.target.value.replace(/\D/g, "").slice(0, 15);
+                        handleInputChange
+                      }}
+                      maxLength={15}
+                      pattern="[0-9]{7,15}" // validation: 7–15 digits
+                      required
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      placeholder="Enter your phone"
+                      data-testid="input-phone"
+                    />
+                  </div>
+                  {/* <p className="text-xs text-gray-400 mt-1">
+                    Phone number must be 7–15 digits
+                  </p> */}
+                </div>
+
+
+
+
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2 text-left">
                     Company
@@ -320,22 +416,22 @@ export default function HeroSection() {
                 >
                   Start Generating
                 </button>
-              {/* </form> */}
+                {/* </form> */}
 
-              <div className="flex flex-col items-center mt-4">
-                <label className="flex items-center text-xs text-gray-500">
-                  <input
-                    type="checkbox"
-                    defaultChecked
-                    required
-                    className="mr-2 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                  />
-                  I agree to the <Link href="/" className="underline mx-1"> terms of service </Link> and <Link href="/" className="underline mx-1"> privacy policy </Link>.
-                </label>
-              </div>
+                <div className="flex flex-col items-center mt-4">
+                  <label className="flex items-center text-xs text-gray-500">
+                    <input
+                      type="checkbox"
+                      defaultChecked
+                      required
+                      className="mr-2 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    />
+                    I agree to the <Link href="/" className="underline mx-1"> terms of service </Link> and <Link href="/" className="underline mx-1"> privacy policy </Link>.
+                  </label>
+                </div>
 
               </form>
-              
+
 
             </motion.div>
           </motion.div>

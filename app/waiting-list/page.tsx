@@ -58,7 +58,7 @@ export default function WaitlistPage() {
                 <div className="hidden sm:flex items-center gap-4">
                     {/* <a href="#why" className="text-sm/6 opacity-80 hover:opacity-100 transition">Why us</a>
           <a href="#industries" className="text-sm/6 opacity-80 hover:opacity-100 transition">Industries</a> */}
-                    <Button onClick={handleScrollToForm} className="rounded-2xl cursor-pointer">Join Waitlist</Button>
+                    <Button onClick={handleScrollToForm} className="rounded-2xl cursor-pointer bg-white text-black">Book Demo</Button>
                 </div>
             </header>
 
@@ -83,19 +83,20 @@ export default function WaitlistPage() {
                             We currently specialize in IT and Real Estate automation, but we’re building new use cases and funnels across industries. Join our waitlist to become a test user and get early access.
                         </motion.p>
                         <div className="mt-8 flex flex-wrap gap-3">
-                            <Button size="lg" onClick={handleScrollToForm} className="rounded-2xl cursor-pointer text-base">
+                            <div onClick={handleScrollToForm} className="rounded-2xl px-6 py-2 flex justify-center items-center bg-green-500 cursor-pointer text-md font-semibold">
                                 Join Waitlist
                                 <ChevronRight className="ml-1 h-5 w-5" />
-                            </Button>
+                            </div>
+
                             {/* <a href="#industries" className="rounded-2xl px-5 py-3 text-base bg-white/5 hover:bg-white/10 transition">
                 See industries
               </a> */}
                         </div>
-                        <div className="mt-8 flex items-center gap-4 text-sm text-slate-400">
+                        {/* <div className="mt-8 flex items-center gap-4 text-sm text-slate-400">
                             <div className="flex items-center gap-2"><Check className="h-4 w-4" />No spam</div>
                             <div className="flex items-center gap-2"><Check className="h-4 w-4" />Cancel anytime</div>
                             <div className="flex items-center gap-2"><Check className="h-4 w-4" />Early access perks</div>
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* Highlight cards */}
@@ -104,7 +105,7 @@ export default function WaitlistPage() {
                             <CardContent className="p-6">
                                 <div className="flex items-center justify-between">
                                     <div className="text-sm text-slate-300">Industry Focus</div>
-                                    <Server className="h-5 w-5 opacity-70" />
+                                    <Server className="h-5 w-5 opacity-70 text-white" />
                                 </div>
                                 <h3 className="mt-3 font-semibold text-white">IT & SaaS</h3>
                                 <p className="mt-2 text-sm text-slate-400">Lead capture bots, product-qualified funneling, demo booking automations.</p>
@@ -115,7 +116,7 @@ export default function WaitlistPage() {
                             <CardContent className="p-6">
                                 <div className="flex items-center justify-between">
                                     <div className="text-sm text-slate-300">Industry Focus</div>
-                                    <Building2 className="h-5 w-5 opacity-70" />
+                                    <Building2 className="h-5 w-5 opacity-70 text-white" />
                                 </div>
                                 <h3 className="mt-3 text-white font-semibold">Real Estate</h3>
                                 <p className="mt-2 text-sm text-slate-400">Property funnels, qualification flows, instant callbacks & showing schedulers.</p>
@@ -251,7 +252,7 @@ export default function WaitlistPage() {
                             )}
 
                             <div className="sm:col-span-2 flex flex-wrap gap-3">
-                                <Button type="submit" size="lg" className="cursor-pointer rounded-2xl bg-white/5 hover:bg-white/10 ">
+                                <Button type="submit" size="lg" className="cursor-pointer rounded-2xl bg-green-500 hover:bg-green-600">
                                     Join Waitlist
                                     <ChevronRight className="ml-1 h-5 w-5" />
                                 </Button>

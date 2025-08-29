@@ -181,211 +181,227 @@ import Link from "next/link";
 import { Suspense } from "react";
 
 
+// import itinsta from "@/public/instaIt.mp4"
 
 
-  function EkFunction() {
 
-    const searchParams = useSearchParams();
-    const business = searchParams.get("business");
-    // const goal = searchParams.get("goal");
 
-    return (
+function EkFunction() {
 
-      <>
+  const searchParams = useSearchParams();
+  const business = searchParams.get("business");
+  // const goal = searchParams.get("goal");
 
-        <Suspense
-          fallback={<div className="flex items-center justify-center min-h-screen bg-[#F9F9F7]">Loading plan...</div>}
-        >
-          <div className="min-h-screen bg-black">
+  return (
 
-            <nav className="z-20 flex justify-between items-center p-6 lg:px-12" data-testid="navigation">
-              <div className="flex items-center space-x-2" data-testid="brand-logo">
-                <span className="text-3xl font-semibold text-white">Weone<span className="text-green-500">AI</span></span>
-              </div>
+    <>
 
-              <div className="flex items-center space-x-4" data-testid="auth-buttons">
-                {/* <button className="px-4 py-2 text-gray-300 hover:text-white transition-colors" data-testid="button-login">Log in</button> */}
-                <Link href="https://calendly.com/weoneai-info/linkedin" className="px-4 py-2 bg-white text-dark-primary rounded-full cursor-pointer hover:bg-gray-100 transition-colors font-medium" data-testid="button-signup">Book Demo</Link>
-              </div>
-            </nav>
+      <Suspense
+        fallback={<div className="flex items-center justify-center min-h-screen bg-[#F9F9F7]">Loading plan...</div>}
+      >
+        <div className="min-h-screen bg-black">
 
-            {/* Header Section */}
-            <header className="relative overflow-hidden py-20">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-purple-900/30 to-blue-900/20" />
-              <div className="relative container mx-auto px-4 text-center">
-                <h1 className="text-5xl md:text-7xl font-bold text-balance py-6 mb-8 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">
-                  Transform Your Digital Experience
-                </h1>
-                <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto text-pretty leading-relaxed">
-                  Discover powerful setups for your favorite apps with our comprehensive installation guides and video
-                  tutorials.
-                </p>
-              </div>
-            </header>
+          <nav className="z-20 flex justify-between items-center p-6 lg:px-12" data-testid="navigation">
+            <div className="flex items-center space-x-2" data-testid="brand-logo">
+              <span className="text-3xl font-semibold text-white">Weone<span className="text-green-500">AI</span></span>
+            </div>
 
-            {/* Section 1: Mobile Phone Mockups with Videos */}
-            <section className="py-20 px-4">
-              <div className="container mx-auto">
-                <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">
-                  Our Diverse Chatbots
-                </h2>
+            <div className="flex items-center space-x-4" data-testid="auth-buttons">
+              {/* <button className="px-4 py-2 text-gray-300 hover:text-white transition-colors" data-testid="button-login">Log in</button> */}
+              <Link href="https://calendly.com/weoneai-info/linkedin" className="px-4 py-2 bg-white text-dark-primary rounded-full cursor-pointer hover:bg-gray-100 transition-colors font-medium" data-testid="button-signup">Book Demo</Link>
+            </div>
+          </nav>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-                  {/* First Mobile Setup */}
-                  <div className="flex flex-col items-center group">
-                    <div className="relative w-80 h-[650px] mx-auto bg-gradient-to-b from-gray-700 to-gray-900 rounded-[3.5rem] p-3 shadow-2xl hover:shadow-blue-500/30 transition-all duration-500 group-hover:scale-105 border-2 border-gray-800">
-                      {/* iPhone Outer Frame */}
-                      <div className="w-full h-full bg-gradient-to-b from-gray-900 to-black rounded-[3rem] relative overflow-hidden border border-gray-700">
-                        {/* Dynamic Island */}
-                        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-36 h-9 bg-black rounded-full z-10 border border-gray-600" />
+          {/* Header Section */}
+          <header className="relative overflow-hidden py-20">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-purple-900/30 to-blue-900/20" />
+            <div className="relative container mx-auto px-4 text-center">
+              <h1 className="text-5xl md:text-7xl font-bold text-balance py-6 mb-8 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">
+                Transform Your Digital Experience
+              </h1>
+              <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto text-pretty leading-relaxed">
+                Discover powerful setups for your favorite apps with our comprehensive installation guides and video
+                tutorials.
+              </p>
+            </div>
+          </header>
 
-                        {/* Screen Content */}
-                        <div className="absolute inset-0 rounded-[3rem] overflow-hidden mt-1">
-                          <video className="w-full h-full object-cover" autoPlay loop muted playsInline>
-                            <source
-                              src="https://www.shutterstock.com/shutterstock/videos/3841958145/preview/stock-footage--k-portrait-looping-pink-padel-racket-d-rotating-with-black-background-phone-size.webm"
-                              type="video/webm"
-                            />
-                          </video>
-                        </div>
+          {/* Section 1: Mobile Phone Mockups with Videos */}
+          <section className="py-20 px-4">
+            <div className="container mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">
+                Our Diverse Chatbots
+              </h2>
 
-                        {/* Home Indicator */}
-                        <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 w-36 h-1.5 bg-white/40 rounded-full" />
-                      </div>
-                    </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+                {/* First Mobile Setup */}
+                <div className="flex flex-col items-center group">
+                  <div className="relative w-80 h-[650px] mx-auto bg-gradient-to-b from-gray-700 to-gray-900 rounded-[3.5rem] p-3 shadow-2xl hover:shadow-blue-500/30 transition-all duration-500 group-hover:scale-105 border-2 border-gray-800">
+                    {/* iPhone Outer Frame */}
+                    <div className="w-full h-full bg-gradient-to-b from-gray-900 to-black rounded-[3rem] relative overflow-hidden border border-gray-700">
+                      {/* Dynamic Island */}
+                      {/* <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-36 h-9 bg-black rounded-full z-10 border border-gray-600" /> */}
 
-                    <Link href="https://calendly.com/weoneai-info/linkedin" className="mt-8 bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full shadow-xl transition-all duration-300 text-lg font-semibold cursor-pointer transform hover:scale-105">
-                      Install Facebook Setup
-                    </Link>
-                  </div>
-
-                  {/* Second Mobile Setup */}
-                  <div className="flex flex-col items-center group">
-                    <div className="relative w-80 h-[650px] mx-auto bg-gradient-to-b from-gray-700 to-gray-900 rounded-[3.5rem] p-3 shadow-2xl hover:shadow-blue-500/30 transition-all duration-500 group-hover:scale-105 border-2 border-gray-800">
-                      <div className="w-full h-full bg-gradient-to-b from-gray-900 to-black rounded-[3rem] relative overflow-hidden border border-gray-700">
-                        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-36 h-9 bg-black rounded-full z-10 border border-gray-600" />
-
-                        <div className="absolute inset-0 rounded-[3rem] overflow-hidden mt-1">
-                          <video className="w-full h-full object-cover" autoPlay loop muted playsInline>
-                            {business === "IT" ?
-                              <source
-                                src="https://www.shutterstock.com/shutterstock/videos/3841958145/preview/stock-footage--k-portrait-looping-pink-padel-racket-d-rotating-with-black-background-phone-size.webm"
-                                type="video/webm"
-                              /> : business === "Real Estate" ? <source
-                                src="https://www.shutterstock.com/shutterstock/videos/3841958145/preview/stock-footage--k-portrait-looping-pink-padel-racket-d-rotating-with-black-background-phone-size.webm"
-                                type="video/webm"
-                              /> : null}
-
-                          </video>
-                        </div>
-
-                        <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 w-36 h-1.5 bg-white/40 rounded-full" />
-                      </div>
-                    </div>
-
-                    <Link href="https://calendly.com/weoneai-info/linkedin" className="mt-8 mt-8 bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full transition-all duration-300 text-lg font-semibold cursor-pointer transform hover:scale-105">
-                      Install WhatsApp Setup
-                    </Link>
-                  </div>
-
-                  {/* Third Mobile Setup */}
-                  <div className="flex flex-col items-center group">
-                    <div className="relative w-80 h-[650px] mx-auto bg-gradient-to-b from-gray-700 to-gray-900 rounded-[3.5rem] p-3 shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 group-hover:scale-105 border-2 border-gray-800">
-                      <div className="w-full h-full bg-gradient-to-b from-gray-900 to-black rounded-[3rem] relative overflow-hidden border border-gray-700">
-                        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-36 h-9 bg-black rounded-full z-10 border border-gray-600" />
-
-                        <div className="absolute inset-0 rounded-[3rem] overflow-hidden mt-1">
-                          <video className="w-full h-full object-cover" autoPlay loop muted playsInline>
-                            <source
-                              src="https://www.shutterstock.com/shutterstock/videos/3841958145/preview/stock-footage--k-portrait-looping-pink-padel-racket-d-rotating-with-black-background-phone-size.webm"
-                              type="video/webm"
-                            />
-                          </video>
-                        </div>
-
-                        <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 w-36 h-1.5 bg-white/40 rounded-full" />
-                      </div>
-                    </div>
-
-                    <Link href="https://calendly.com/weoneai-info/linkedin" className="mt-8 mt-8 bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full transition-all duration-300 text-lg font-semibold cursor-pointer transform hover:scale-105">
-                      Install Insta Setup
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Section 2: Desktop with YouTube Video */}
-            <section className="py-20 px-4 bg-gradient-to-b from-black via-gray-900/30 to-black">
-              <div className="container mx-auto text-center">
-                <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white bg-clip-text text-transparent">
-                  Our CRM Go Through
-                </h2>
-
-                <div className="w-full max-w-5xl mx-auto">
-                  <div className="relative mx-auto bg-gradient-to-b from-gray-700 to-gray-900 rounded-t-3xl p-6 shadow-2xl hover:shadow-purple-500/40 transition-all duration-500">
-                    {/* Laptop Screen */}
-                    <div className="relative bg-black rounded-2xl overflow-hidden shadow-inner border border-gray-600">
-                      <div className="aspect-video">
-                        <iframe
-                          className="w-full h-full rounded-2xl"
-                          // src="https://www.youtube.com/embed/RlPNh_PBZb4?autoplay=1&mute=1&loop=1&playlist=RlPNh_PBZb4&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3"
-                          src="https://www.youtube.com/embed/PxPllMUyJTY?si=rhg6ogS6uDQrPXAo"
-                          title="Desktop Setup Tutorial"
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        />
+                      {/* Screen Content */}
+                      <div className="absolute inset-0 rounded-[3rem] overflow-hidden mt-1">
+                        <video className="w-full h-full object-cover" autoPlay loop muted playsInline>
+                          <source
+                            src="fbRealEstate.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
                       </div>
 
-                      {/* Screen Reflection */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-transparent to-purple-500/10 pointer-events-none rounded-2xl" />
+                      {/* Home Indicator */}
+                      <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 w-36 h-1.5 bg-white/40 rounded-full" />
                     </div>
-
-                    {/* Laptop Camera */}
-                    <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-gray-800 rounded-full border border-gray-500" />
                   </div>
 
-                  {/* Laptop Base */}
-                  <div className="relative h-16 bg-gradient-to-b from-gray-700 to-gray-900 rounded-b-3xl shadow-2xl mx-auto max-w-7xl border-x border-b border-gray-600">
-                    {/* Trackpad */}
-                    <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-40 h-8 bg-gray-600 rounded-xl border border-gray-500" />
-                  </div>
-
-                  {/* Laptop Stand Shadow */}
-                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-96 h-6 bg-gradient-to-r from-transparent via-purple-500/20 to-transparent rounded-full blur-sm" />
+                  <Link href="https://calendly.com/weoneai-info/linkedin" className="mt-8 bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full shadow-xl transition-all duration-300 text-lg font-semibold cursor-pointer transform hover:scale-105">
+                    Install Facebook Setup
+                  </Link>
                 </div>
 
-                <div className="mt-16 space-y-8">
-                  <p className="text-xl md:text-2xl text-white max-w-4xl mx-auto text-pretty leading-relaxed">
-                    Get the complete desktop experience with our comprehensive setup guide. Perfect for power users who want
-                    to maximize their productivity and unlock advanced features.
-                  </p>
+                {/* Second Mobile Setup */}
+                <div className="flex flex-col items-center group">
+                  <div className="relative w-80 h-[650px] mx-auto bg-gradient-to-b from-gray-700 to-gray-900 rounded-[3.5rem] p-3 shadow-2xl hover:shadow-blue-500/30 transition-all duration-500 group-hover:scale-105 border-2 border-gray-800">
+                    <div className="w-full h-full bg-gradient-to-b from-gray-900 to-black rounded-[3rem] relative overflow-hidden border border-gray-700">
+                      {/* <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-36 h-9 bg-black rounded-full z-10 border border-gray-600" /> */}
 
-                  <Link href="https://calendly.com/weoneai-info/linkedin" className="bg-green-500 hover:bg-green-600 text-white px-12 py-4 rounded-full shadow-2xl hover:shadow-green-500/50 transition-all duration-300 text-xl font-semibold cursor-pointer transform hover:scale-105">
-                    Get Started Now
+                      <div className="absolute inset-0 rounded-[3rem] overflow-hidden mt-1">
+                        <video className="w-full h-full object-cover" autoPlay loop muted playsInline>
+                          {business === "IT" ?
+                            <source
+                              src="ItWhatsApp.mp4"
+                              type="video/mp4"
+                            /> : business === "Real Estate" ? <source
+                              src="ItWhatsApp.mp4"
+                              type="video/mp4"
+                            // src="https://www.shutterstock.com/shutterstock/videos/3841958145/preview/stock-footage--k-portrait-looping-pink-padel-racket-d-rotating-with-black-background-phone-size.webm"
+                            // type="video/webm"
+                            /> : null}
+
+                        </video>
+                      </div>
+
+                      <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 w-36 h-1.5 bg-white/40 rounded-full" />
+                    </div>
+                  </div>
+
+                  <Link href="https://calendly.com/weoneai-info/linkedin" className="mt-8 mt-8 bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full transition-all duration-300 text-lg font-semibold cursor-pointer transform hover:scale-105">
+                    Install WhatsApp Setup
+                  </Link>
+                </div>
+
+                {/* Third Mobile Setup */}
+                <div className="flex flex-col items-center group">
+                  <div className="relative w-80 h-[650px] mx-auto bg-gradient-to-b from-gray-700 to-gray-900 rounded-[3.5rem] p-3 shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 group-hover:scale-105 border-2 border-gray-800">
+                    <div className="w-full h-full bg-gradient-to-b from-gray-900 to-black rounded-[3rem] relative overflow-hidden border border-gray-700">
+                      {/* <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-36 h-9 bg-black rounded-full z-10 border border-gray-600" /> */}
+
+                      <div className="absolute inset-0 rounded-[3rem] overflow-hidden mt-1">
+                        <video className="w-full h-full object-cover" autoPlay loop muted playsInline>
+                          <source
+                            src="instaIt.mp4"
+                            type="video/mp4"
+                          />
+                          {/* <source
+                              src="https://www.shutterstock.com/shutterstock/videos/3841958145/preview/stock-footage--k-portrait-looping-pink-padel-racket-d-rotating-with-black-background-phone-size.webm"
+                              type="video/webm"
+                            /> */}
+                        </video>
+                      </div>
+
+                      <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 w-36 h-1.5 bg-white/40 rounded-full" />
+                    </div>
+                  </div>
+
+                  <Link href="https://calendly.com/weoneai-info/linkedin" className="mt-8 mt-8 bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full transition-all duration-300 text-lg font-semibold cursor-pointer transform hover:scale-105">
+                    Install Insta Setup
                   </Link>
                 </div>
               </div>
-            </section>
+            </div>
+          </section>
 
-            {/* Footer */}
-            {/* <footer className="py-16 px-4 bg-gradient-to-t from-black via-gray-900/30 to-black border-t border-gray-800">
+          {/* Section 2: Desktop with YouTube Video */}
+          <section className="py-20 px-4 bg-gradient-to-b from-black via-gray-900/30 to-black">
+            <div className="container mx-auto text-center">
+              <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white bg-clip-text text-transparent">
+                Our CRM Go Through
+              </h2>
+
+              <div className="w-full max-w-5xl mx-auto">
+                <div className="relative mx-auto bg-gradient-to-b from-gray-700 to-gray-900 rounded-t-3xl p-6 shadow-2xl hover:shadow-purple-500/40 transition-all duration-500">
+                  {/* Laptop Screen */}
+                  <div className="relative bg-black rounded-2xl overflow-hidden shadow-inner border border-gray-600">
+                    <div className="aspect-video">
+                      {/* <iframe
+                        className="w-full h-full rounded-2xl"
+                        src="https://www.youtube.com/embed/PxPllMUyJTY?si=rhg6ogS6uDQrPXAo"
+                        title="Desktop Setup Tutorial"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      /> */}
+
+
+                      <video className="w-full h-full object-cover" autoPlay loop muted playsInline>
+                        <source
+                          src="crmDesktop.mp4"
+                          type="video/mp4"
+                        />
+                      </video>
+
+
+                    </div>
+
+                    {/* Screen Reflection */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-transparent to-purple-500/10 pointer-events-none rounded-2xl" />
+                  </div>
+
+                  {/* Laptop Camera */}
+                  <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-gray-800 rounded-full border border-gray-500" />
+                </div>
+
+                {/* Laptop Base */}
+                <div className="relative h-16 bg-gradient-to-b from-gray-700 to-gray-900 rounded-b-3xl shadow-2xl mx-auto max-w-7xl border-x border-b border-gray-600">
+                  {/* Trackpad */}
+                  <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-40 h-8 bg-gray-600 rounded-xl border border-gray-500" />
+                </div>
+
+                {/* Laptop Stand Shadow */}
+                <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-96 h-6 bg-gradient-to-r from-transparent via-purple-500/20 to-transparent rounded-full blur-sm" />
+              </div>
+
+              <div className="mt-16 space-y-8">
+                <p className="text-xl md:text-2xl text-white max-w-4xl mx-auto text-pretty leading-relaxed">
+                  Get the complete desktop experience with our comprehensive setup guide. Perfect for power users who want
+                  to maximize their productivity and unlock advanced features.
+                </p>
+
+                <Link href="https://calendly.com/weoneai-info/linkedin" className="bg-green-500 hover:bg-green-600 text-white px-12 py-4 rounded-full shadow-2xl hover:shadow-green-500/50 transition-all duration-300 text-xl font-semibold cursor-pointer transform hover:scale-105">
+                  Get Started Now
+                </Link>
+              </div>
+            </div>
+          </section>
+
+          {/* Footer */}
+          {/* <footer className="py-16 px-4 bg-gradient-to-t from-black via-gray-900/30 to-black border-t border-gray-800">
         <div className="container mx-auto text-center">
           <p className="text-white text-lg bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent font-semibold">
             © 2024 App Setup Guide. Transform your digital experience today.
           </p>
         </div>
       </footer> */}
-          </div>
-        </Suspense>
+        </div>
+      </Suspense>
 
-      </>
+    </>
 
-    )
-  }
-
-
+  )
+}
 
 
 
